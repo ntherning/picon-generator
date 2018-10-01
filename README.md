@@ -18,6 +18,16 @@ mkdir -p /Volumes/Root/media/hdd/XPicons/picon
     -d /Volumes/Root/media/hdd/XPicons/picon/ \
     -m ./custom_mappings.txt
 ```
+To generate the smaller set of picons for the Metrix skin used by my Zgemma I use this command line:
+
+```
+./picon-generator/picon-generator.py \
+    -s 100x60 \
+    -l /Volumes/Root/etc/enigma2/lamedb \
+    -i ./picons/build-source/logos/ \
+    -d /Volumes/Root/media/hdd/picon/ \
+    -m ./custom_mappings.txt
+```
 
 ## Custom mappings file format
 
