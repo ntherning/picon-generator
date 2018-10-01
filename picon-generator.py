@@ -182,7 +182,7 @@ if custom_mappings_file:
     with open(custom_mappings_file) as f:
         custom_mappings = dict(map(lambda l: l.split('='), f.read().splitlines()))
 
-for service in e.services.values():
+for service in sorted(e.services.values(), key=lambda s: s.name):
     custom_mapping = custom_mappings[service.name] if service.name in custom_mappings else None
     if custom_mapping == 'ignored':
         continue
@@ -206,5 +206,7 @@ for service in e.services.values():
             cmd = 'convert -background transparent -gravity center -thumbnail {} -extent {} "{}" "{}"'.format(size, size, source, target)
             print(cmd)
             os.system(cmd)
+        else:
+            print('Target picon file "{}" already exists for channel "{}". Skipping.'.format(target, service.name))
     else:
         sys.stderr.write('No logo for channel "{}" found\n'.format(service.name))
