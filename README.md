@@ -1,5 +1,12 @@
 # Enigma2 Picon Generator
 
+This script depends on the Imagemagick `convert` command being in your `PATH`
+and it must be capable of handling SVG files. On macOS get it using homebrew:
+
+```
+brew install imagemagick
+```
+
 ## Typical usage
 
 This assumes that the root filesystem of the Enigma2 box has been mounted at
